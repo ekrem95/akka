@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: postgres:11-alpine
+    restart: always
+    ports:
+    - '5432:5432'
+    volumes:
+    - ./data/postgres:/var/lib/postgresql/data
+    environment:
+    # psql -h 127.0.0.1 -U root -d main
+    - POSTGRES_USER=root
+    - POSTGRES_PASSWORD=pass
+    - POSTGRES_DB=main
